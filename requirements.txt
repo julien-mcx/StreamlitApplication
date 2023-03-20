@@ -2,3 +2,5 @@ matplotlib
 seaborn
 plotly
 streamlit_lottie
+pandas 
+openpyxl
