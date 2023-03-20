@@ -46,12 +46,8 @@ def sidebar_bg(side_bg):
       unsafe_allow_html=True,
       )
 
-# dataframe_all = pd.read_excel(r"\\ad-its.credit-agricole.fr\dfs\HOMEDIRS\AMUNDI\michoux\Desktop\Personnel\Projets Python\Questions d’entretiens en Finance de Marché\versiongithub\Questions2.xlsx")
-# m_isindir = '\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\'
-# p_filedirectory = m_isindir + "Questions d’entretiens en Finance de Marché\\versiongithub\\Excel\\QuestionsFinancedeMarche6.xlsx"
-p_filedirectory = 'QuestionsFinancedeMarche6.xlsx'
+p_filedirectory = 'QuestionsFinancedeMarche6.xlsx' #CHANGEMENT
 dataframe_all = pd.ExcelFile(p_filedirectory)
-st.write(dataframe_all)
 dataframe_allsheets = dataframe_all.sheet_names
 
 
@@ -103,7 +99,8 @@ def treatment(p_dataframe):
         message = st.text_area("Enter your text : ", "")
         if st.button("Summarize"):
             st.write("gg")
-            st_lottie(load_lottiefile("\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\Questions d’entretiens en Finance de Marché\\versiongithub\\lottiefiles\\hello.json"), speed = 1, reverse=False, loop = True, quality  = "low")
+            
+#             st_lottie(load_lottiefile("\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\Questions d’entretiens en Finance de Marché\\versiongithub\\lottiefiles\\hello.json"), speed = 1, reverse=False, loop = True, quality  = "low")
             # tokens = pegasus_tokenizer(message, truncation = True, padding = "longest", return_tensors = "pt")            
 
 
@@ -121,13 +118,22 @@ def primarychoice():
     treatment(df_current)
 
     #vizualization 
-    side_bg = '\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\Questions d’entretiens en Finance de Marché\\versiongithub\\lottiefiles\\water.jpg'
-    sidebar_bg(side_bg)
-    # background = st_lottie(load_lottiefile("\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\Questions d’entretiens en Finance de Marché\\versiongithub\\lottiefiles\\waves.json"))
-    # sidebar_bg(background)
+   #to delete 
+   page = """
+   <style>
+   [data-testid="stSidebar"]  {background-color: #e5e5f7;
+   opacity: 0.9;
+   background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 20px ), repeating-linear-gradient( #5245f755, #5245f7 );}
 
-
-
+   [data-testid="stAppViewContainer"]  {background-color: #e5e5f7;
+   opacity: 0.9;
+   background-image:  radial-gradient(#f7a645 1px, transparent 1px), radial-gradient(#f7a645 1px, #e5e5f7 1px);
+   background-size: 40px 40px;
+   background-position: 0 0,20px 20px;
+   }
+   <style>
+   """
+   st.markdown(page, unsafe_allow_html=True)
 
     return(df_current)
     
