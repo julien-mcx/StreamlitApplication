@@ -4,3 +4,4 @@ plotly
 streamlit_lottie
 pandas 
 openpyxl
+gensym
