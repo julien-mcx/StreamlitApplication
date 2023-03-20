@@ -21,9 +21,9 @@ import streamlit as st
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
-import spacy
+# import spacy
 from spacy import displacy
-nlp = spacy.load('en')
+# nlp = spacy.load('en')
 def sumy_summarizer(docx):
 	parser = PlaintextParser.from_string(docx,Tokenizer("english"))
 	lex_summarizer = LexRankSummarizer()
