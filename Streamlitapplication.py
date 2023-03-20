@@ -118,22 +118,22 @@ def primarychoice():
     treatment(df_current)
 
     #vizualization 
-   #to delete 
-   page = """
-   <style>
-   [data-testid="stSidebar"]  {background-color: #e5e5f7;
-   opacity: 0.9;
-   background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 20px ), repeating-linear-gradient( #5245f755, #5245f7 );}
+    page = """
+    <style>
+    [data-testid="stSidebar"]  {background-color: #e5e5f7;
+opacity: 0.9;
+background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 20px ), repeating-linear-gradient( #5245f755, #5245f7 );}
 
-   [data-testid="stAppViewContainer"]  {background-color: #e5e5f7;
-   opacity: 0.9;
-   background-image:  radial-gradient(#f7a645 1px, transparent 1px), radial-gradient(#f7a645 1px, #e5e5f7 1px);
-   background-size: 40px 40px;
-   background-position: 0 0,20px 20px;
-   }
-   <style>
-   """
-   st.markdown(page, unsafe_allow_html=True)
+    [data-testid="stAppViewContainer"]  {background-color: #e5e5f7;
+opacity: 0.9;
+background-image:  radial-gradient(#f7a645 1px, transparent 1px), radial-gradient(#f7a645 1px, #e5e5f7 1px);
+background-size: 40px 40px;
+background-position: 0 0,20px 20px;
+    }
+    <style>
+    """
+    st.markdown(page, unsafe_allow_html=True)
+
 
     return(df_current)
     
