@@ -5,3 +5,4 @@ streamlit_lottie
 pandas 
 openpyxl
 sumy
+spacy
