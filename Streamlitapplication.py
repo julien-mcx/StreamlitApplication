@@ -112,7 +112,7 @@ def treatment(p_dataframe):
         message = st.text_area("Enter your text : ", "")
         if st.button("Summarize"):
             st.write("gg")
-            summary_result = summarize(raw_text)
+#             summary_result = summarize(raw_text)
             st.write(summary_result)
             
 #             st_lottie(load_lottiefile("\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\Questions d’entretiens en Finance de Marché\\versiongithub\\lottiefiles\\hello.json"), speed = 1, reverse=False, loop = True, quality  = "low")
