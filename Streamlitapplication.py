@@ -108,9 +108,10 @@ def treatment(p_dataframe):
     elif current_row_possibilities == "INPUT": #give the possibility to answer by writting
         message = st.text_area("Enter your text : ", "")
         if st.button("Summarize"):
-            st.write("gg")
-	    summary_result = sumy_summarizer(message)
-            st.write(summary_result)
+		st.write("gg")
+		summary_result = sumy_summarizer(message)
+		st.write(summary_result)
+
             
 #             st_lottie(load_lottiefile("\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\Questions d’entretiens en Finance de Marché\\versiongithub\\lottiefiles\\hello.json"), speed = 1, reverse=False, loop = True, quality  = "low")
             # tokens = pegasus_tokenizer(message, truncation = True, padding = "longest", return_tensors = "pt")            
