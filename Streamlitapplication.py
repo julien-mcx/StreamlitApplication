@@ -17,7 +17,7 @@ import json
 
 #for ML 
 import streamlit as st 
-from gensim.summarization import summarize
+# from gensim.summarization import summarize
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
