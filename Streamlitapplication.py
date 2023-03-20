@@ -47,8 +47,8 @@ def sidebar_bg(side_bg):
       )
 
 # dataframe_all = pd.read_excel(r"\\ad-its.credit-agricole.fr\dfs\HOMEDIRS\AMUNDI\michoux\Desktop\Personnel\Projets Python\Questions d’entretiens en Finance de Marché\versiongithub\Questions2.xlsx")
-m_isindir = '\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\'
-p_filedirectory = m_isindir + "Questions d’entretiens en Finance de Marché\\versiongithub\\Excel\\QuestionsFinancedeMarche6.xlsx"
+# m_isindir = '\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\'
+# p_filedirectory = m_isindir + "Questions d’entretiens en Finance de Marché\\versiongithub\\Excel\\QuestionsFinancedeMarche6.xlsx"
 p_filedirectory = 'QuestionsFinancedeMarche6.xlsx'
 dataframe_all = pd.ExcelFile(p_filedirectory)
 st.write(dataframe_all)
