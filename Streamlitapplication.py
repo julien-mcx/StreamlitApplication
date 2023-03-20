@@ -24,6 +24,16 @@ from sumy.summarizers.lex_rank import LexRankSummarizer
 import spacy
 from spacy import displacy
 nlp = spacy.load('en')
+def sumy_summarizer(docx):
+	parser = PlaintextParser.from_string(docx,Tokenizer("english"))
+	lex_summarizer = LexRankSummarizer()
+	summary = lex_summarizer(parser.document,3)
+	summary_list = [str(sentence) for sentence in summary]
+	result = ' '.join(summary_list)
+	return result
+
+
+
 
 # import spacy 
 # from gensim.summarization import summarize
@@ -102,6 +112,8 @@ def treatment(p_dataframe):
         message = st.text_area("Enter your text : ", "")
         if st.button("Summarize"):
             st.write("gg")
+            summary_result = summarize(raw_text)
+            st.write(summary_result)
             
 #             st_lottie(load_lottiefile("\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\Questions d’entretiens en Finance de Marché\\versiongithub\\lottiefiles\\hello.json"), speed = 1, reverse=False, loop = True, quality  = "low")
             # tokens = pegasus_tokenizer(message, truncation = True, padding = "longest", return_tensors = "pt")            
