@@ -16,11 +16,14 @@ from PIL import Image
 import json
 
 #for ML 
-# import pytextrank
-# from transformers import PegasusForConditionalGeneration, PegasusTokenizer
-# model_name = "google/pegasus-xsum"
-# pegasus_tokenizer = PegasusTokenizer.from_pretrained(model_name)
-# pegasus_model = PegasusForConditionalGeneration.from_pretrained(model_name)
+import streamlit as st 
+from gensim.summarization import summarize
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.lex_rank import LexRankSummarizer
+import spacy
+from spacy import displacy
+nlp = spacy.load('en')
 
 # import spacy 
 # from gensim.summarization import summarize
