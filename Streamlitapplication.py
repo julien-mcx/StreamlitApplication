@@ -114,6 +114,7 @@ def treatment(p_dataframe):
         message = st.text_area("Enter your text : ", "")
         if st.button("Summarize"): 
           real_answer = current_row['Answer'].iloc[0]#useless to check 
+          print(real_answer,message)
           sentences = [
               message,
               real_answer
