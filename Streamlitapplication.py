@@ -144,7 +144,7 @@ def primarychoice():
     <style>
     [data-testid="stSidebar"]  {background-color: #e5e5f7;
 opacity: 0.9;
-background-image: primaryColor="#F63366", backgroundColor="#FFFFFF", secondaryBackgroundColor="#F0F2F6", textColor="#262730", font="sans serif" ;)
+background-image:primaryColor="#6eb52f",backgroundColor="#f0f0f5",secondaryBackgroundColor="#e0e0ef",textColor="#262730",font="sans serif";)
 #background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 20px ), repeating-linear-gradient( #5245f755, #5245f7 );}
 
     [data-testid="stAppViewContainer"]  {background-color: #e5e5f7;
