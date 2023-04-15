@@ -115,7 +115,6 @@ def treatment(p_dataframe):
         if st.button("Summarize"): 
           real_answer = current_row['Answer'].iloc[0]#useless to check 
           real_justification = current_row['Justification'].iloc[0]#useless to justification
-          st.write(real_justification)
 
           sentences = [
               message,
