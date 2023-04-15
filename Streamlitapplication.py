@@ -16,6 +16,10 @@ from PIL import Image
 import json
 
 #for ML 
+from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer, util
+model = SentenceTransformer('distilbert-base-nli-mean-tokens')
+
 import streamlit as st 
 # from gensim.summarization import summarize
 from sumy.parsers.plaintext import PlaintextParser
@@ -108,9 +112,17 @@ def treatment(p_dataframe):
     
     elif current_row_possibilities == "INPUT": #give the possibility to answer by writting
         message = st.text_area("Enter your text : ", "")
-        if st.button("Summarize"):
-            summary_result = sumy_summarizer(message)
-            st.write("summary_result")
+        if st.button("Summarize"): 
+	  real_answer = current_row['Answer'].iloc[0]#useless to check 
+	  sentences = [
+	      message,
+	      real_answer
+	      ]
+	  sentence_embeddings = model.encode(sentences) #modèle intermédiaire
+	  similitude = util.pytorch_cos_sim(sentence_embeddings[0], sentence_embeddings[1]) 
+	  if similitude > 0.5 : 
+	    print("gg")
+		
 
             
 #             st_lottie(load_lottiefile("\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\Questions d’entretiens en Finance de Marché\\versiongithub\\lottiefiles\\hello.json"), speed = 1, reverse=False, loop = True, quality  = "low")
