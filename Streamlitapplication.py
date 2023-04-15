@@ -114,6 +114,8 @@ def treatment(p_dataframe):
         message = st.text_area("Enter your text : ", "")
         if st.button("Summarize"): 
           real_answer = current_row['Answer'].iloc[0]#useless to check 
+          real_justification = current_row['Justification'].iloc[0]#useless to justification        
+
           sentences = [
               message,
               real_answer
@@ -124,8 +126,6 @@ def treatment(p_dataframe):
             st.success("Exactement ! Quelques compléments : \n " + real_justification)
           else : 
             st.error("Faux ! puisque : " + real_justification)
-		
-
             
 #             st_lottie(load_lottiefile("\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\Questions d’entretiens en Finance de Marché\\versiongithub\\lottiefiles\\hello.json"), speed = 1, reverse=False, loop = True, quality  = "low")
             # tokens = pegasus_tokenizer(message, truncation = True, padding = "longest", return_tensors = "pt")            
