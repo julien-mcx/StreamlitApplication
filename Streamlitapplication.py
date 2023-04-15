@@ -114,7 +114,6 @@ def treatment(p_dataframe):
         message = st.text_area("Enter your text : ", "")
         if st.button("Summarize"): 
           real_answer = current_row['Answer'].iloc[0]#useless to check 
-          print(real_answer,message)
           sentences = [
               message,
               real_answer
@@ -122,7 +121,9 @@ def treatment(p_dataframe):
           sentence_embeddings = model.encode(sentences) #modèle intermédiaire
           similitude = util.pytorch_cos_sim(sentence_embeddings[0], sentence_embeddings[1]) 
           if similitude > 0.5 : 
-            print("gg")
+            st.success("Exactement ! Quelques compléments : \n " + real_justification)
+          else : 
+            st.error("Faux ! puisque : " + real_justification)
 		
 
             
