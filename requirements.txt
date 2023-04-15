@@ -7,3 +7,4 @@ openpyxl
 sumy
 spacy
 nltk
+sentence_transformers
