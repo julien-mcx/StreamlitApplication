@@ -114,7 +114,8 @@ def treatment(p_dataframe):
         message = st.text_area("Enter your text : ", "")
         if st.button("Summarize"): 
           real_answer = current_row['Answer'].iloc[0]#useless to check 
-          real_justification = current_row['Justification'].iloc[0]#useless to justification        
+          real_justification = current_row['Justification'].iloc[0]#useless to justification
+          st.write(real_justification)
 
           sentences = [
               message,
@@ -123,9 +124,9 @@ def treatment(p_dataframe):
           sentence_embeddings = model.encode(sentences) #modèle intermédiaire
           similitude = util.pytorch_cos_sim(sentence_embeddings[0], sentence_embeddings[1]) 
           if similitude > 0.5 : 
-            st.success("Exactement ! Quelques compléments : \n " + "gg")
+            st.success("Exactement ! Quelques compléments : \n " + str(real_justification))
           else : 
-            st.error("Faux ! puisque : " + "gg")
+            st.error("Faux ! puisque : " + str(real_justification))
             
 #             st_lottie(load_lottiefile("\\\\ad-its.credit-agricole.fr\\dfs\\HOMEDIRS\\AMUNDI\\michoux\\Desktop\\Personnel\\Projets Python\\Questions d’entretiens en Finance de Marché\\versiongithub\\lottiefiles\\hello.json"), speed = 1, reverse=False, loop = True, quality  = "low")
             # tokens = pegasus_tokenizer(message, truncation = True, padding = "longest", return_tensors = "pt")            
