@@ -115,16 +115,16 @@ def treatment(p_dataframe):
         if st.button("Summarize"): 
           real_answer = current_row['Answer'].iloc[0]#useless to check 
           real_justification = current_row['Justification'].iloc[0]#useless to justification
-          sentences = [
-              message,
-              real_answer
-              ] #for the model
-          sentence_embeddings = model.encode(sentences) #modèle intermédiaire
-          similitude = util.pytorch_cos_sim(sentence_embeddings[0], sentence_embeddings[1]) #result of the model 
-          if similitude > 0.5 : 
-            st.success("Exactement ! Quelques compléments : \n " + str(real_justification))
-          else : 
-            st.error("Faux ! puisque : " + str(real_justification))
+#           sentences = [
+#               message,
+#               real_answer
+#               ] #for the model
+#           sentence_embeddings = model.encode(sentences) #modèle intermédiaire
+#           similitude = util.pytorch_cos_sim(sentence_embeddings[0], sentence_embeddings[1]) #result of the model 
+#           if similitude > 0.5 : 
+#             st.success("Exactement ! Quelques compléments : \n " + str(real_justification))
+#           else : 
+#             st.error("Faux ! puisque : " + str(real_justification))
 
 def primarychoice():
 
