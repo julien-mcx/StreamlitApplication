@@ -164,9 +164,9 @@ def primarychoice():
         st.warning("Please enter a valid email address")
     else:
         # Send email
-#         subject = "New user email"
-#         body = f"New user email: {user_email}"
-#         send_email(user_email, subject, body)
+        subject = "New user email"
+        body = f"New user email: {user_email}"
+        send_email(user_email, subject, body)
         st.success("Email sent successfully!")
         
         #choix de la sheet associée à la sélection
