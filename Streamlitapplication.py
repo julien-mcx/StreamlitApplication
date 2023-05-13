@@ -36,6 +36,33 @@ def sumy_summarizer(docx):
 	result = ' '.join(summary_list)
 	return result
 
+#for email 
+
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+def send_email(to_email, subject, body):
+    # Replace 'your_email@gmail.com' and 'your_email_password' with your email and password
+    gmail_user = 'ju.michoux@gmail.com'
+    gmail_password = 'Juliette&01'
+
+    message = MIMEMultipart()
+    message['From'] = gmail_user
+    message['To'] = to_email
+    message['Subject'] = subject
+
+    # Add body to email
+    message.attach(MIMEText(body, 'plain'))
+
+    # Send email using Gmail SMTP server
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(gmail_user, gmail_password)
+    text = message.as_string()
+    server.sendmail(gmail_user, to_email, text)
+    server.quit()
+	
 # import spacy 
 # from gensim.summarization import summarize
 # from textblob import textBlob
@@ -126,40 +153,52 @@ def treatment(p_dataframe):
 #           else : 
 #             st.error("Faux ! puisque : " + str(real_justification))
 
+
 def primarychoice():
+    # Get user email input
+    user_email = st.text_input("Enter your email")
 
-    #choix de la sheet associée à la sélection
-    st.sidebar.info("This app is maintained by Michoux Julien. " "You can contact me at [ju.michoux@gmail.com].")
-    st.sidebar.title("Let's choose your asset type")
-    l_assettypechoice = st.sidebar.radio("Choose your asset type : ", dataframe_allsheets)
-    df_current = pd.read_excel(p_filedirectory, sheet_name=l_assettypechoice)
-
-
-    #traitement
-    st.title(l_assettypechoice)
-    treatment(df_current)
-
-    #vizualization 
-    page = """
-    <style>
-    [data-testid="stSidebar"]  {background-color: #e5e5f7;
-opacity: 0.9;
-background-image:primaryColor="#6eb52f",backgroundColor="#f0f0f5",secondaryBackgroundColor="#e0e0ef",textColor="#262730",font="sans serif";)
-#background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 20px ), repeating-linear-gradient( #5245f755, #5245f7 );}
-
-    [data-testid="stAppViewContainer"]  {background-color: #e5e5f7;
-opacity: 0.9;
-background-image:  radial-gradient(#f7a645 1px, transparent 1px), radial-gradient(#f7a645 1px, #e5e5f7 1px);
-background-size: 40px 40px;
-background-position: 0 0,20px 20px;
-    }
-    <style>
-    """
-    st.markdown(page, unsafe_allow_html=True)
+    # Check if email is valid
+    if not re.match(r"[^@]+@[^@]+\.[^@]+", user_email):
+        st.warning("Please enter a valid email address")
+    else:
+        # Send email
+        subject = "New user email"
+        body = f"New user email: {user_email}"
+        send_email(user_email, subject, body)
+        st.success("Email sent successfully!")
+        
+        #choix de la sheet associée à la sélection
+        st.sidebar.info("This app is maintained by Michoux Julien. " "You can contact me at [ju.michoux@gmail.com].")
+        st.sidebar.title("Let's choose your asset type")
+        l_assettypechoice = st.sidebar.radio("Choose your asset type : ", dataframe_allsheets)
+        df_current = pd.read_excel(p_filedirectory, sheet_name=l_assettypechoice)
 
 
-    return(df_current)
-    
+        #traitement
+        st.title(l_assettypechoice)
+        treatment(df_current)
+
+        #vizualization 
+        page = """
+        <style>
+        [data-testid="stSidebar"]  {background-color: #e5e5f7;
+        opacity: 0.9;
+        background-image:primaryColor="#6eb52f",backgroundColor="#f0f0f5",secondaryBackgroundColor="#e0e0ef",textColor="#262730",font="sans serif";)
+        #background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 20px ), repeating-linear-gradient( #5245f755, #5245f7 );}
+
+        [data-testid="stAppViewContainer"]  {background-color: #e5e5f7;
+        opacity: 0.9;
+        background-image:  radial-gradient(#f7a645 1px, transparent 1px), radial-gradient(#f7a645 1px, #e5e5f7 1px);
+        background-size: 40px 40px;
+        background-position: 0 0,20px 20px;
+        }
+        <style>
+        """
+        st.markdown(page, unsafe_allow_html=True)
+
+
+        return(df_current)
 
 if __name__ == '__main__':
     primarychoice()
