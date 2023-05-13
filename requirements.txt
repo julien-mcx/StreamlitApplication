@@ -8,3 +8,5 @@ sumy
 spacy
 nltk
 sentence_transformers
+regex 
+smtplib
