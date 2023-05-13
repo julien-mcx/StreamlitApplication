@@ -167,7 +167,7 @@ def primarychoice():
         def save_email(email):
             with open("mails.txt", "a") as f:
                 f.write(email + "\n")
-        st.success("Email sent successfully!")
+        st.success("Email is valid !")
         
         #choix de la sheet associée à la sélection
         st.sidebar.info("This app is maintained by Michoux Julien. " "You can contact me at [ju.michoux@gmail.com].")
