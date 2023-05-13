@@ -180,110 +180,110 @@ def primarychoice():
         treatment(df_current)
 
         #vizualization 
-        page = """
-        <style>
-            /* Sidebar */
-            [data-testid="stSidebar"]  {
-                background-color: #F4F4F4;
-                border-right: 1px solid #D2D2D2;
-            }
+#         page = """
+#         <style>
+#             /* Sidebar */
+#             [data-testid="stSidebar"]  {
+#                 background-color: #F4F4F4;
+#                 border-right: 1px solid #D2D2D2;
+#             }
 
-            /* Main Content Area */
-            [data-testid="stAppMain"] {
-                background-color: #FFFFFF;
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            }
+#             /* Main Content Area */
+#             [data-testid="stAppMain"] {
+#                 background-color: #FFFFFF;
+#                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+#             }
 
-            /* Page Title */
-            h1 {
-                font-size: 48px;
-                color: #1F1F1F;
-                font-family: Arial, sans-serif;
-            }
+#             /* Page Title */
+#             h1 {
+#                 font-size: 48px;
+#                 color: #1F1F1F;
+#                 font-family: Arial, sans-serif;
+#             }
 
-            /* Section Headings */
-            h2 {
-                font-size: 36px;
-                color: #333333;
-                font-family: Arial, sans-serif;
-                margin-bottom: 10px;
-            }
+#             /* Section Headings */
+#             h2 {
+#                 font-size: 36px;
+#                 color: #333333;
+#                 font-family: Arial, sans-serif;
+#                 margin-bottom: 10px;
+#             }
 
-            /* Subsection Headings */
-            h3 {
-                font-size: 24px;
-                color: #333333;
-                font-family: Arial, sans-serif;
-                margin-bottom: 10px;
-            }
+#             /* Subsection Headings */
+#             h3 {
+#                 font-size: 24px;
+#                 color: #333333;
+#                 font-family: Arial, sans-serif;
+#                 margin-bottom: 10px;
+#             }
 
-            /* Paragraphs */
-            p {
-                font-size: 18px;
-                color: #4A4A4A;
-                font-family: Arial, sans-serif;
-                line-height: 1.5;
-                margin-bottom: 10px;
-            }
+#             /* Paragraphs */
+#             p {
+#                 font-size: 18px;
+#                 color: #4A4A4A;
+#                 font-family: Arial, sans-serif;
+#                 line-height: 1.5;
+#                 margin-bottom: 10px;
+#             }
 
-            /* Buttons */
-            .stButton {
-                background-color: #6EB54A;
-                color: #FFFFFF;
-                border-radius: 5px;
-                border: none;
-                font-size: 18px;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-bottom: 20px;
-                font-family: Arial, sans-serif;
-                cursor: pointer;
-            }
+#             /* Buttons */
+#             .stButton {
+#                 background-color: #6EB54A;
+#                 color: #FFFFFF;
+#                 border-radius: 5px;
+#                 border: none;
+#                 font-size: 18px;
+#                 padding: 10px 20px;
+#                 margin-top: 20px;
+#                 margin-bottom: 20px;
+#                 font-family: Arial, sans-serif;
+#                 cursor: pointer;
+#             }
 
-            .stButton:hover {
-                background-color: #8CC970;
-            }
+#             .stButton:hover {
+#                 background-color: #8CC970;
+#             }
 
-            /* Text Input Fields */
-            .stTextInput {
-                border-radius: 5px;
-                border: 1px solid #D2D2D2;
-                font-size: 18px;
-                padding: 10px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                font-family: Arial, sans-serif;
-                color: #4A4A4A;
-            }
+#             /* Text Input Fields */
+#             .stTextInput {
+#                 border-radius: 5px;
+#                 border: 1px solid #D2D2D2;
+#                 font-size: 18px;
+#                 padding: 10px;
+#                 margin-top: 10px;
+#                 margin-bottom: 10px;
+#                 font-family: Arial, sans-serif;
+#                 color: #4A4A4A;
+#             }
 
-            /* Checkbox Input Fields */
-            .stCheckbox {
-                margin-top: 10px;
-                margin-bottom: 10px;
-            }
+#             /* Checkbox Input Fields */
+#             .stCheckbox {
+#                 margin-top: 10px;
+#                 margin-bottom: 10px;
+#             }
 
-            /* Select Input Fields */
-            .stSelectbox {
-                border-radius: 5px;
-                border: 1px solid #D2D2D2;
-                font-size: 18px;
-                padding: 10px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                font-family: Arial, sans-serif;
-                color: #4A4A4A;
-                background-color: #FFFFFF;
-            }
+#             /* Select Input Fields */
+#             .stSelectbox {
+#                 border-radius: 5px;
+#                 border: 1px solid #D2D2D2;
+#                 font-size: 18px;
+#                 padding: 10px;
+#                 margin-top: 10px;
+#                 margin-bottom: 10px;
+#                 font-family: Arial, sans-serif;
+#                 color: #4A4A4A;
+#                 background-color: #FFFFFF;
+#             }
 
-            /* Select Input Field Options */
-            .stSelectbox option {
-                font-size: 18px;
-                font-family: Arial, sans-serif;
-                color: #4A4A4A;
-            }
-        </style>
-        """
-        st.markdown(page, unsafe_allow_html=True)
+#             /* Select Input Field Options */
+#             .stSelectbox option {
+#                 font-size: 18px;
+#                 font-family: Arial, sans-serif;
+#                 color: #4A4A4A;
+#             }
+#         </style>
+#         """
+#         st.markdown(page, unsafe_allow_html=True)
 
         # CSS styles
         styles = """
