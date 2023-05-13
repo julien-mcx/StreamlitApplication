@@ -199,7 +199,7 @@ def primarychoice():
                 font-size: 48px;
                 color: #242424;
                 font-family: Arial, sans-serif;
-                background-color: #0074D9;
+                background-color: #60b1f7;
                 padding: 10px; /* Ajouter cette ligne pour donner de l'espace autour du titre */
             }
 
