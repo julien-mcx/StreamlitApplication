@@ -174,8 +174,7 @@ def primarychoice():
         st.sidebar.title("Let's choose your asset type")
         l_assettypechoice = st.sidebar.radio("Choose your asset type : ", dataframe_allsheets)
         df_current = pd.read_excel(p_filedirectory, sheet_name=l_assettypechoice)
-
-
+	
         #traitement
         st.title(l_assettypechoice)
         treatment(df_current)
@@ -183,23 +182,110 @@ def primarychoice():
         #vizualization 
         page = """
         <style>
-        [data-testid="stSidebar"]  {background-color: #e5e5f7;
-        opacity: 0.9;
-        background-image:primaryColor="#6eb52f",backgroundColor="#f0f0f5",secondaryBackgroundColor="#e0e0ef",textColor="#262730",font="sans serif";)
-        #background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 20px ), repeating-linear-gradient( #5245f755, #5245f7 );}
+            /* Sidebar */
+            [data-testid="stSidebar"]  {
+                background-color: #F4F4F4;
+                border-right: 1px solid #D2D2D2;
+            }
 
-        [data-testid="stAppViewContainer"]  {background-color: #e5e5f7;
-        opacity: 0.9;
-        background-image:  radial-gradient(#f7a645 1px, transparent 1px), radial-gradient(#f7a645 1px, #e5e5f7 1px);
-        background-size: 40px 40px;
-        background-position: 0 0,20px 20px;
-        }
-        <style>
+            /* Main Content Area */
+            [data-testid="stAppMain"] {
+                background-color: #FFFFFF;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Page Title */
+            h1 {
+                font-size: 48px;
+                color: #1F1F1F;
+                font-family: Arial, sans-serif;
+            }
+
+            /* Section Headings */
+            h2 {
+                font-size: 36px;
+                color: #333333;
+                font-family: Arial, sans-serif;
+                margin-bottom: 10px;
+            }
+
+            /* Subsection Headings */
+            h3 {
+                font-size: 24px;
+                color: #333333;
+                font-family: Arial, sans-serif;
+                margin-bottom: 10px;
+            }
+
+            /* Paragraphs */
+            p {
+                font-size: 18px;
+                color: #4A4A4A;
+                font-family: Arial, sans-serif;
+                line-height: 1.5;
+                margin-bottom: 10px;
+            }
+
+            /* Buttons */
+            .stButton {
+                background-color: #6EB54A;
+                color: #FFFFFF;
+                border-radius: 5px;
+                border: none;
+                font-size: 18px;
+                padding: 10px 20px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-family: Arial, sans-serif;
+                cursor: pointer;
+            }
+
+            .stButton:hover {
+                background-color: #8CC970;
+            }
+
+            /* Text Input Fields */
+            .stTextInput {
+                border-radius: 5px;
+                border: 1px solid #D2D2D2;
+                font-size: 18px;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-family: Arial, sans-serif;
+                color: #4A4A4A;
+            }
+
+            /* Checkbox Input Fields */
+            .stCheckbox {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            /* Select Input Fields */
+            .stSelectbox {
+                border-radius: 5px;
+                border: 1px solid #D2D2D2;
+                font-size: 18px;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-family: Arial, sans-serif;
+                color: #4A4A4A;
+                background-color: #FFFFFF;
+            }
+
+            /* Select Input Field Options */
+            .stSelectbox option {
+                font-size: 18px;
+                font-family: Arial, sans-serif;
+                color: #4A4A4A;
+            }
+        </style>
         """
         st.markdown(page, unsafe_allow_html=True)
 
-
         return(df_current)
-
+    
 if __name__ == '__main__':
     primarychoice()
