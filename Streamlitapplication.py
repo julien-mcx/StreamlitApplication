@@ -175,7 +175,7 @@ def primarychoice():
         l_assettypechoice = st.sidebar.radio("Choose your asset type : ", dataframe_allsheets)
         df_current = pd.read_excel(p_filedirectory, sheet_name=l_assettypechoice)
 	
-        #traitement
+         #traitement
         st.title(l_assettypechoice)
         treatment(df_current)
 
@@ -199,6 +199,8 @@ def primarychoice():
                 font-size: 48px;
                 color: #242424;
                 font-family: Arial, sans-serif;
+                background-color: #0074D9;
+                padding: 10px; /* Ajouter cette ligne pour donner de l'espace autour du titre */
             }
 
             /* Section Headings */
@@ -285,12 +287,11 @@ def primarychoice():
         """
         st.markdown(page, unsafe_allow_html=True)
 
-    
 
     
 
         return(df_current)
     
-    
+
 if __name__ == '__main__':
     primarychoice()
