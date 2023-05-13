@@ -184,27 +184,27 @@ def primarychoice():
         <style>
             /* Sidebar */
             [data-testid="stSidebar"]  {
-                background-color: #F4F4F4;
+                background-color: #f7a6a6;
                 border-right: 1px solid #D2D2D2;
             }
 
             /* Main Content Area */
             [data-testid="stAppMain"] {
-                background-color: #FFFFFF;
+                background-color: #f7a6a6;
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             }
 
             /* Page Title */
             h1 {
                 font-size: 48px;
-                color: #1F1F1F;
+                color: #f7a6a6;
                 font-family: Arial, sans-serif;
             }
 
             /* Section Headings */
             h2 {
                 font-size: 36px;
-                color: #333333;
+                color: #f7a6a6;
                 font-family: Arial, sans-serif;
                 margin-bottom: 10px;
             }
@@ -212,7 +212,7 @@ def primarychoice():
             /* Subsection Headings */
             h3 {
                 font-size: 24px;
-                color: #333333;
+                color: #f7a6a6;
                 font-family: Arial, sans-serif;
                 margin-bottom: 10px;
             }
@@ -220,7 +220,7 @@ def primarychoice():
             /* Paragraphs */
             p {
                 font-size: 18px;
-                color: #4A4A4A;
+                color: #f7a6a6;
                 font-family: Arial, sans-serif;
                 line-height: 1.5;
                 margin-bottom: 10px;
@@ -229,7 +229,7 @@ def primarychoice():
             /* Buttons */
             .stButton {
                 background-color: #6EB54A;
-                color: #FFFFFF;
+                color: #f7a6a6;
                 border-radius: 5px;
                 border: none;
                 font-size: 18px;
@@ -241,19 +241,19 @@ def primarychoice():
             }
 
             .stButton:hover {
-                background-color: #8CC970;
+                background-color: #f7a6a6;
             }
 
             /* Text Input Fields */
             .stTextInput {
                 border-radius: 5px;
-                border: 1px solid #D2D2D2;
+                border: 1px solid #f7a6a6;
                 font-size: 18px;
                 padding: 10px;
                 margin-top: 10px;
                 margin-bottom: 10px;
                 font-family: Arial, sans-serif;
-                color: #4A4A4A;
+                color: #f7a6a6;
             }
 
             /* Checkbox Input Fields */
@@ -265,26 +265,26 @@ def primarychoice():
             /* Select Input Fields */
             .stSelectbox {
                 border-radius: 5px;
-                border: 1px solid #D2D2D2;
+                border: 1px solid #f7a6a6;
                 font-size: 18px;
                 padding: 10px;
                 margin-top: 10px;
                 margin-bottom: 10px;
                 font-family: Arial, sans-serif;
-                color: #4A4A4A;
-                background-color: #FFFFFF;
+                color: #f7a6a6;
+                background-color: #f7a6a6;
             }
 
             /* Select Input Field Options */
             .stSelectbox option {
                 font-size: 18px;
                 font-family: Arial, sans-serif;
-                color: #4A4A4A;
+                color: #f7a6a6;
             }
 
             /* Body Background */
             body {
-                background-color: #F4F4F4;
+                background-color: #f7a6a6;
             }
         </style>
         """
