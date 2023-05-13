@@ -285,7 +285,48 @@ def primarychoice():
         """
         st.markdown(page, unsafe_allow_html=True)
 
+        # CSS styles
+        styles = """
+            body {
+                background-color: #f8f8f8;
+            }
+
+            .stApp {
+                padding-top: 1rem;
+            }
+
+            .stCard > div {
+                background-color: #ffffff;
+                box-shadow: rgba(0, 0, 0, 0.1) 0 0.25rem 0.75rem;
+            }
+
+            .stButton {
+                background-color: #4CAF50;
+                color: #ffffff;
+                padding: 0.5rem 1rem;
+                border-radius: 0.25rem;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .stButton:hover {
+                background-color: #388E3C;
+                color: #ffffff;
+                transform: scale(1.05);
+            }
+        """
+
+        # Set the page config
+        st.set_page_config(
+            page_title="Ma page Streamlit",
+            page_icon=":smiley:",
+            layout="wide"
+        )
+
+        # Add CSS styles
+        st.markdown(f'<style>{styles}</style>', unsafe_allow_html=True)
+
         return(df_current)
+    
     
 if __name__ == '__main__':
     primarychoice()
