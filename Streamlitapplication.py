@@ -184,27 +184,27 @@ def primarychoice():
         <style>
             /* Sidebar */
             [data-testid="stSidebar"]  {
-                background-color: #f7a6a6;
+                background-color: #F9F9F9;
                 border-right: 1px solid #D2D2D2;
             }
 
             /* Main Content Area */
             [data-testid="stAppMain"] {
-                background-color: #f7a6a6;
+                background-color: #FFFFFF;
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             }
 
             /* Page Title */
             h1 {
                 font-size: 48px;
-                color: #f7a6a6;
+                color: #242424;
                 font-family: Arial, sans-serif;
             }
 
             /* Section Headings */
             h2 {
                 font-size: 36px;
-                color: #f7a6a6;
+                color: #333333;
                 font-family: Arial, sans-serif;
                 margin-bottom: 10px;
             }
@@ -212,7 +212,7 @@ def primarychoice():
             /* Subsection Headings */
             h3 {
                 font-size: 24px;
-                color: #f7a6a6;
+                color: #333333;
                 font-family: Arial, sans-serif;
                 margin-bottom: 10px;
             }
@@ -220,7 +220,7 @@ def primarychoice():
             /* Paragraphs */
             p {
                 font-size: 18px;
-                color: #f7a6a6;
+                color: #4A4A4A;
                 font-family: Arial, sans-serif;
                 line-height: 1.5;
                 margin-bottom: 10px;
@@ -228,8 +228,8 @@ def primarychoice():
 
             /* Buttons */
             .stButton {
-                background-color: #6EB54A;
-                color: #f7a6a6;
+                background-color: #45A160;
+                color: #FFFFFF;
                 border-radius: 5px;
                 border: none;
                 font-size: 18px;
@@ -241,19 +241,19 @@ def primarychoice():
             }
 
             .stButton:hover {
-                background-color: #f7a6a6;
+                background-color: #4EB36B;
             }
 
             /* Text Input Fields */
             .stTextInput {
                 border-radius: 5px;
-                border: 1px solid #f7a6a6;
+                border: 1px solid #D2D2D2;
                 font-size: 18px;
                 padding: 10px;
                 margin-top: 10px;
                 margin-bottom: 10px;
                 font-family: Arial, sans-serif;
-                color: #f7a6a6;
+                color: #4A4A4A;
             }
 
             /* Checkbox Input Fields */
@@ -265,30 +265,28 @@ def primarychoice():
             /* Select Input Fields */
             .stSelectbox {
                 border-radius: 5px;
-                border: 1px solid #f7a6a6;
+                border: 1px solid #D2D2D2;
                 font-size: 18px;
                 padding: 10px;
                 margin-top: 10px;
                 margin-bottom: 10px;
                 font-family: Arial, sans-serif;
-                color: #f7a6a6;
-                background-color: #f7a6a6;
+                color: #4A4A4A;
+                background-color: #FFFFFF;
             }
 
             /* Select Input Field Options */
             .stSelectbox option {
                 font-size: 18px;
                 font-family: Arial, sans-serif;
-                color: #f7a6a6;
-            }
-
-            /* Body Background */
-            body {
-                background-color: #f7a6a6;
+                color: #4A4A4A;
             }
         </style>
         """
         st.markdown(page, unsafe_allow_html=True)
+
+    
+
     
 
         return(df_current)
