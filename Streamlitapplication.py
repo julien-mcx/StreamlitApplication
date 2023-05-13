@@ -175,7 +175,7 @@ def primarychoice():
         l_assettypechoice = st.sidebar.radio("Choose your asset type : ", dataframe_allsheets)
         df_current = pd.read_excel(p_filedirectory, sheet_name=l_assettypechoice)
 	
-         #traitement
+        #traitement
         st.title(l_assettypechoice)
         treatment(df_current)
 
@@ -283,15 +283,23 @@ def primarychoice():
                 font-family: Arial, sans-serif;
                 color: #4A4A4A;
             }
+            [data-testid="stSidebar"]  {background-color: #e5e5f7;
+            opacity: 0.9;
+            background-image:primaryColor="#6eb52f",backgroundColor="#f0f0f5",secondaryBackgroundColor="#e0e0ef",textColor="#262730",font="sans serif";)
+            #background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 20px ), repeating-linear-gradient( #5245f755, #5245f7 );}
+
+            [data-testid="stAppViewContainer"]  {background-color: #e5e5f7;
+            opacity: 0.9;
+            background-image:  radial-gradient(#f7a645 1px, transparent 1px), radial-gradient(#f7a645 1px, #e5e5f7 1px);
+            background-size: 40px 40px;
+            background-position: 0 0,20px 20px;
+            }
         </style>
+        
         """
         st.markdown(page, unsafe_allow_html=True)
 
-
-    
-
         return(df_current)
-    
 
 if __name__ == '__main__':
     primarychoice()
