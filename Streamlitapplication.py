@@ -154,7 +154,6 @@ def treatment(p_dataframe):
 #           else : 
 #             st.error("Faux ! puisque : " + str(real_justification))
 
-
 def primarychoice():
     # Get user email input
     user_email = st.text_input("Enter your email")
@@ -175,9 +174,7 @@ def primarychoice():
         sheet = pxl_doc['Options']
         image_loader = SheetImageLoader(sheet)
         image = image_loader.get('B9')
-	st.write(image)
-
-        ################TEST
+        st.write(image)
 
         
         #choix de la sheet associée à la sélection
