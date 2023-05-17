@@ -168,10 +168,11 @@ def primarychoice():
                 f.write(email + "\n")
         st.success("Email is valid !")
         ################TEST 
-        from PIL import Image
-        test_path = dataframe_all['Question Number '][8]
-        image = Image.open(test_path)
-        st.image(image, caption=row['caption'])  # Colonne contenant le texte de légende de l'image dans le fichier Excel
+#         from PIL import Image
+	
+#         test_path = dataframe_all['Question Number '][8]
+#         image = Image.open(test_path)
+#         st.image(image, caption=row['caption'])  # Colonne contenant le texte de légende de l'image dans le fichier Excel
 
         ################TEST
 
