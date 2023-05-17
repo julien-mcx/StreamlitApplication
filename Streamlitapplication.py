@@ -168,14 +168,12 @@ def primarychoice():
                 f.write(email + "\n")
         st.success("Email is valid !")
         ################TEST 
-        import openpyxl
-        from openpyxl_image_loader import SheetImageLoader
-        pxl_doc = openpyxl.load_workbook(p_filedirectory)
-        sheet = pxl_doc['Options']
-        image_loader = SheetImageLoader(sheet)
-        image = image_loader.get('B9')
-        st.write(image)
-        st.write(image.show())
+        from PIL import Image
+        test_path = dataframe_all['Question Number '][8]
+        image = Image.open(test_path)
+        st.image(image, caption=row['caption'])  # Colonne contenant le texte de légende de l'image dans le fichier Excel
+
+        ################TEST
 
         
         #choix de la sheet associée à la sélection
