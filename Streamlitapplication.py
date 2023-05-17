@@ -174,7 +174,11 @@ def primarychoice():
         sheet = pxl_doc['Options']
         image_loader = SheetImageLoader(sheet)
         image = image_loader.get('B9')
+        st.write(image)
         st.write(image.show())
+
+        display(image)
+        st.write(display(image))
 
         
         #choix de la sheet associée à la sélection
