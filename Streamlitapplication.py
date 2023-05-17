@@ -168,6 +168,16 @@ def primarychoice():
             with open("mails.txt", "a") as f:
                 f.write(email + "\n")
         st.success("Email is valid !")
+	################TEST 
+	import openpyxl
+	from openpyxl_image_loader import SheetImageLoader
+	pxl_doc = openpyxl.load_workbook(p_filedirectory)
+	sheet = pxl_doc['Options']
+	image_loader = SheetImageLoader(sheet)
+	image = image_loader.get('B9')
+
+	################TEST
+
         
         #choix de la sheet associée à la sélection
         st.sidebar.info("This app is maintained by Michoux Julien. " "You can contact me at [ju.michoux@gmail.com].")
