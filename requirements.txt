@@ -8,4 +8,4 @@ sumy
 spacy
 nltk
 sentence_transformers
-
+openpyxl-image-loader
