@@ -177,9 +177,6 @@ def primarychoice():
         st.write(image)
         st.write(image.show())
 
-        display(image)
-        st.write(display(image))
-
         
         #choix de la sheet associée à la sélection
         st.sidebar.info("This app is maintained by Michoux Julien. " "You can contact me at [ju.michoux@gmail.com].")
