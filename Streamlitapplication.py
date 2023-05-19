@@ -154,6 +154,7 @@ def treatment(p_dataframe):
 #           else : 
 #             st.error("Faux ! puisque : " + str(real_justification))
 
+
 def primarychoice():
     # Get user email input
     user_email = st.text_input("Enter your email")
@@ -175,7 +176,8 @@ def primarychoice():
 
         from streamlit_image_select import image_select
         img = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
-        st.write(img)
+        if img == "images/Question_6_Options/Put.JPG" : 
+            st.write("gg")
 
         ################TEST
 
