@@ -8,3 +8,4 @@ sumy
 spacy
 nltk
 sentence_transformers
+streamlit-image-select==0.5.1
