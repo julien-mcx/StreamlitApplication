@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import datetime
+import re
 from datetime import datetime, timedelta
 import warnings
 import io
@@ -14,7 +15,6 @@ import streamlit as st
 import plotly.express as px  # interactive charts
 from PIL import Image
 import json
-from streamlit_image_select import image_select
 
 
 #for ML 
