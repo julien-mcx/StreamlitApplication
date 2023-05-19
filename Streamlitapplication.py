@@ -15,6 +15,9 @@ import streamlit as st
 import plotly.express as px  # interactive charts
 from PIL import Image
 import json
+from streamlit_image_select import image_select
+
+
 
 
 #for ML 
@@ -180,7 +183,6 @@ def primarychoice():
         image = Image.open(test_path)
         st.image(image)  # Colonne contenant le texte de légende de l'image dans le fichier Excel
 
-        from streamlit_image_select import image_select
         img = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
         if img == "images/Question_6_Options/Put.JPG" : 
             st.write("gg")
