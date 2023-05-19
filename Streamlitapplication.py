@@ -98,7 +98,6 @@ def load_lottiefile(filepath :str):
     with open(filepath, "r") as f : 
         return json.load(f)
 
-
 def treatment(p_dataframe):
     df_current = p_dataframe
     #display description 
@@ -123,22 +122,7 @@ def treatment(p_dataframe):
     current_row_possibilities = current_row['Possibility'].iloc[0]
     current_split_row_possibilities = list(current_row_possibilities.split(","))
 
-    if current_row_possibilities != "INPUT": #give the possibility to answer by writting (see elif)
-
-        #current answer
-        answer = st.selectbox("Choose your answer :", current_split_row_possibilities)
-        if st.button("Send"):
-            #check answer
-            real_answer = current_row['Answer'].iloc[0]#useless to check 
-            real_justification = current_row['Justification'].iloc[0]#useless to justification        
-            
-            if answer == real_answer :
-                st.success("Exactement ! Quelques compléments : \n " + real_justification)
-
-            else : 
-                st.error("Faux ! puisque : " + real_justification)
-    
-    elif current_row_possibilities == "INPUT": #give the possibility to answer by writting
+    if current_row_possibilities == "INPUT": #give the possibility to answer by writting (see elif)
         message = st.text_area("Enter your text : ", "")
         if st.button("Summarize"): 
           real_answer = current_row['Answer'].iloc[0]#useless to check 
@@ -153,6 +137,27 @@ def treatment(p_dataframe):
 #             st.success("Exactement ! Quelques compléments : \n " + str(real_justification))
 #           else : 
 #             st.error("Faux ! puisque : " + str(real_justification))
+
+    
+    elif current_row_possibilities == "Image": #give the possibility to answer by writting
+        message = st.text_area("Choose your answer from the following possibilities", "")
+        img = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
+        if img == "images/Question_6_Options/Put.JPG" : 
+            st.write("gg")
+
+    else : 
+        #current answer
+        answer = st.selectbox("Choose your answer :", current_split_row_possibilities)
+        if st.button("Send"):
+            #check answer
+            real_answer = current_row['Answer'].iloc[0]#useless to check 
+            real_justification = current_row['Justification'].iloc[0]#useless to justification        
+            
+            if answer == real_answer :
+                st.success("Exactement ! Quelques compléments : \n " + real_justification)
+
+            else : 
+                st.error("Faux ! puisque : " + real_justification)
 
 
 def primarychoice():
