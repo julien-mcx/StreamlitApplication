@@ -173,6 +173,10 @@ def primarychoice():
         image = Image.open(test_path)
         st.image(image)  # Colonne contenant le texte de légende de l'image dans le fichier Excel
 
+        from streamlit_image_select import image_select
+        img = image_select("Label", ["1000_F_42570032_tNXjCF0k7hUSojxE6kyuFKPKC6NjJAZ2.jpg", "CallOK.JPG"])
+        st.write(img)
+
         ################TEST
 
         
