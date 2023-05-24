@@ -183,8 +183,8 @@ def primarychoice():
 #         image = Image.open(test_path)
 #         st.image(image)  # Colonne contenant le texte de légende de l'image dans le fichier Excel
 
-        img = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
-        if img == "images/Question_6_Options/Put.JPG" : 
+        img1 = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
+        if img1 == "images/Question_6_Options/Put.JPG" : 
             st.write("gg")
 
         ################TEST
