@@ -179,9 +179,9 @@ def primarychoice():
         st.success("Email is valid !")
         ################TEST 
         from PIL import Image
-        test_path = "1000_F_42570032_tNXjCF0k7hUSojxE6kyuFKPKC6NjJAZ2.jpg"
-        image = Image.open(test_path)
-        st.image(image)  # Colonne contenant le texte de légende de l'image dans le fichier Excel
+#         test_path = "1000_F_42570032_tNXjCF0k7hUSojxE6kyuFKPKC6NjJAZ2.jpg"
+#         image = Image.open(test_path)
+#         st.image(image)  # Colonne contenant le texte de légende de l'image dans le fichier Excel
 
         img = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
         if img == "images/Question_6_Options/Put.JPG" : 
