@@ -145,7 +145,7 @@ def treatment(p_dataframe):
     
     elif current_row_possibilities == "Image": #give the possibility to answer by writting
         message = st.write("Choose your answer from the following possibilities", "")
-        img = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
+        img2 = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
 #         if img == "images/Question_6_Options/Put.JPG" : 
 #             st.write("gg")
 
