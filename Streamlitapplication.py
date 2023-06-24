@@ -147,6 +147,10 @@ def treatment(p_dataframe):
         st.write("gg")
         # message = st.write("Choose your answer from the following possibilities", "")
         img = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
+        if img == "images/Question_6_Options/Put.JPG" : 
+            st.write("gg")
+
+
 #         if img == "images/Question_6_Options/Put.JPG" : 
 #             st.write("gg")
 
@@ -184,9 +188,9 @@ def primarychoice():
 #         image = Image.open(test_path)
 #         st.image(image)  # Colonne contenant le texte de légende de l'image dans le fichier Excel
 
-        img1 = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
-        if img1 == "images/Question_6_Options/Put.JPG" : 
-            st.write("gg")
+        # img1 = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
+        # if img1 == "images/Question_6_Options/Put.JPG" : 
+        #     st.write("gg")
 
         ################TEST
 
