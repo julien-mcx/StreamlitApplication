@@ -18,8 +18,6 @@ import json
 from streamlit_image_select import image_select
 
 
-
-
 #for ML 
 from sentence_transformers import SentenceTransformer
 from sentence_transformers import SentenceTransformer, util
@@ -92,7 +90,7 @@ def sidebar_bg(side_bg):
       unsafe_allow_html=True,
       )
 
-p_filedirectory = 'QuestionsFinancedeMarche10.xlsx' #CHANGEMENT
+p_filedirectory = 'QuestionsFinancedeMarche11.xlsx' #CHANGEMENT
 dataframe_all = pd.ExcelFile(p_filedirectory)
 dataframe_allsheets = dataframe_all.sheet_names
 dataframe_allsheets.remove('Commentaires  ') #delete sheet Commentaires
@@ -125,6 +123,7 @@ def treatment(p_dataframe):
     #possibilities 
     current_row_possibilities = current_row['Possibility'].iloc[0]
     current_split_row_possibilities = list(current_row_possibilities.split(","))
+    current_row_images_possibilities = current_row['ImageUsed'].iloc[0]
 
     if current_row_possibilities == "INPUT": #give the possibility to answer by writting (see elif)
         message = st.text_area("Enter your text : ", "")
@@ -145,9 +144,11 @@ def treatment(p_dataframe):
     
     elif current_row_possibilities == "Image": #give the possibility to answer by writting
         st.write("gg")
+        real_answer = current_row['Answer'].iloc[0]#useless to check 
+        real_justification = current_row['Justification'].iloc[0]#useless to justification
         # message = st.write("Choose your answer from the following possibilities", "")
-        img = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
-        if img == "images/Question_6_Options/Put.JPG" : 
+        img = image_select("Label", current_row_images_possibilities)
+        if img == real_answer : 
             st.write("gg")
 
 
