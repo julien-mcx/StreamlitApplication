@@ -143,7 +143,7 @@ def treatment(p_dataframe):
 
     
     elif current_row_possibilities == "Image": #give the possibility to answer by writting
-        st.write("gg")
+        st.write("current_row_images_possibilities")
         real_answer = current_row['Answer'].iloc[0]#useless to check 
         real_justification = current_row['Justification'].iloc[0]#useless to justification
         # message = st.write("Choose your answer from the following possibilities", "")
