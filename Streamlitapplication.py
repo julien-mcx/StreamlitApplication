@@ -147,7 +147,7 @@ def treatment(p_dataframe):
         real_answer = current_row['Answer'].iloc[0]#useless to check 
         real_justification = current_row['Justification'].iloc[0]#useless to justification
         # message = st.write("Choose your answer from the following possibilities", "")
-        img = image_select("Label", list(current_row_images_possibilities))
+        img = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
         if img == real_answer : 
             st.write("gg")
 
