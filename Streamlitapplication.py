@@ -140,16 +140,22 @@ def treatment(p_dataframe):
 #             st.success("Exactement ! Quelques compléments : \n " + str(real_justification))
 #           else : 
 #             st.error("Faux ! puisque : " + str(real_justification))
-
-    
+	
     elif current_row_possibilities == "Image": #give the possibility to answer by writting
-        st.write(f"{current_row_images_possibilities}")
-        real_answer = current_row['Answer'].iloc[0]#useless to check 
-        real_justification = current_row['Justification'].iloc[0]#useless to justification
+        st.write("gg")
         # message = st.write("Choose your answer from the following possibilities", "")
-        img = image_select("Label", current_row_images_possibilities)
-        if img == real_answer : 
+        img = image_select("Label", ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"])
+        if img == "images/Question_6_Options/CallOK.JPG" : 
             st.write("gg")
+    
+    # elif current_row_possibilities == "Image": #give the possibility to answer by writting
+    #     st.write(f"{current_row_images_possibilities}")
+    #     real_answer = current_row['Answer'].iloc[0]#useless to check 
+    #     real_justification = current_row['Justification'].iloc[0]#useless to justification
+    #     # message = st.write("Choose your answer from the following possibilities", "")
+    #     img = image_select("Label", current_row_images_possibilities)
+    #     if img == real_answer : 
+    #         st.write("gg")
 
 
 #         if img == "images/Question_6_Options/Put.JPG" : 
