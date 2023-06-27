@@ -141,13 +141,23 @@ def treatment(p_dataframe):
 #           else : 
 #             st.error("Faux ! puisque : " + str(real_justification))
 	
+    # elif current_row_possibilities == "Image": #give the possibility to answer by writting
+    #     st.write(f"{current_row_images_possibilities}")
+    #     test = "images/Question_6_Options/CallOK.JPG"
+    #     st.write(f"{test}")
+    #     st.write(current_row_images_possibilities==test)
+    #     # message = st.write("Choose your answer from the following possibilities", "")
+    #     img = image_select("Label", [test, "images/Question_6_Options/Put.JPG"])
+    #     if img == "images/Question_6_Options/CallOK.JPG" : 
+    #         st.write("gg")
+    
     elif current_row_possibilities == "Image": #give the possibility to answer by writting
         st.write(f"{current_row_images_possibilities}")
-        test = "images/Question_6_Options/CallOK.JPG"
+        test = ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"]
         st.write(f"{test}")
         st.write(current_row_images_possibilities==test)
         # message = st.write("Choose your answer from the following possibilities", "")
-        img = image_select("Label", [current_row_images_possibilities, "images/Question_6_Options/Put.JPG"])
+        img = image_select("Label", [test])
         if img == "images/Question_6_Options/CallOK.JPG" : 
             st.write("gg")
     
