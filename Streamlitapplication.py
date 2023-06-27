@@ -147,7 +147,7 @@ def treatment(p_dataframe):
         st.write(f"{test}")
         st.write(current_row_images_possibilities==test)
         # message = st.write("Choose your answer from the following possibilities", "")
-        img = image_select("Label", [test, "images/Question_6_Options/Put.JPG"])
+        img = image_select("Label", [current_row_images_possibilities, "images/Question_6_Options/Put.JPG"])
         if img == "images/Question_6_Options/CallOK.JPG" : 
             st.write("gg")
     
