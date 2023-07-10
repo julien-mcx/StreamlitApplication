@@ -125,21 +125,22 @@ def treatment(p_dataframe):
     current_split_row_possibilities = list(current_row_possibilities.split(","))
     current_row_images_possibilities = current_row['ImageUsed'].iloc[0]
 
+    real_answer = current_row['Answer'].iloc[0]#useless to check 
+    real_justification = current_row['Justification'].iloc[0]#useless to justification
+
     if current_row_possibilities == "INPUT": #give the possibility to answer by writting (see elif)
         message = st.text_area("Enter your text : ", "")
         if st.button("Summarize"): 
-          real_answer = current_row['Answer'].iloc[0]#useless to check 
-          real_justification = current_row['Justification'].iloc[0]#useless to justification
-#           sentences = [
-#               message,
-#               real_answer
-#               ] #for the model
-#           sentence_embeddings = model.encode(sentences) #modèle intermédiaire
-#           similitude = util.pytorch_cos_sim(sentence_embeddings[0], sentence_embeddings[1]) #result of the model 
-#           if similitude > 0.5 : 
-#             st.success("Exactement ! Quelques compléments : \n " + str(real_justification))
-#           else : 
-#             st.error("Faux ! puisque : " + str(real_justification))
+          sentences = [
+              message,
+              real_answer
+              ] #for the model
+          sentence_embeddings = model.encode(sentences) #modèle intermédiaire
+          similitude = util.pytorch_cos_sim(sentence_embeddings[0], sentence_embeddings[1]) #result of the model 
+          if similitude > 0.5 : 
+            st.success("Exactement ! Quelques compléments : \n " + str(real_justification))
+          else : 
+            st.error("Faux ! puisque : " + str(real_justification))
 	
     # elif current_row_possibilities == "Image": #give the possibility to answer by writting
     #     st.write(f"{current_row_images_possibilities}")
@@ -150,34 +151,30 @@ def treatment(p_dataframe):
     #     img = image_select("Label", [test, "images/Question_6_Options/Put.JPG"])
     #     if img == "images/Question_6_Options/CallOK.JPG" : 
     #         st.write("gg")
+
+    # elif current_row_possibilities == "Image": #give the possibility to answer by writting
+    #     current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
+    #     # current_row_images_possibilities[0].replace('"', "'")
+    #     # current_row_images_possibilities[1].replace('"', "'")
+    #     st.write(f"{current_row_images_possibilities}")
+    #     st.write(f"{type(current_row_images_possibilities)}")
+    #     test = ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"]
+    #     st.write(f"{test}")
+    #     st.write(current_row_images_possibilities==test)
+    #     # message = st.write("Choose your answer from the following possibilities", "")
+    #     img = image_select("Label", current_row_images_possibilities)
+    #     if img == "images/Question_6_Options/CallOK.JPG" : 
+    #         st.write("gg")
     
     elif current_row_possibilities == "Image": #give the possibility to answer by writting
         current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
-        # current_row_images_possibilities[0].replace('"', "'")
-        # current_row_images_possibilities[1].replace('"', "'")
-        st.write(f"{current_row_images_possibilities}")
-        st.write(f"{type(current_row_images_possibilities)}")
-        test = ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"]
-        st.write(f"{test}")
-        st.write(current_row_images_possibilities==test)
-        # message = st.write("Choose your answer from the following possibilities", "")
+        st.write("Choose your answer from the following possibilities")
         img = image_select("Label", current_row_images_possibilities)
-        if img == "images/Question_6_Options/CallOK.JPG" : 
-            st.write("gg")
+        if img == real_answer : 
+            st.success("Exactement ! Quelques compléments : \n " + real_justification)
+        else : 
+            st.error("Faux ! puisque : " + real_justification)
     
-    # elif current_row_possibilities == "Image": #give the possibility to answer by writting
-    #     st.write(f"{current_row_images_possibilities}")
-    #     real_answer = current_row['Answer'].iloc[0]#useless to check 
-    #     real_justification = current_row['Justification'].iloc[0]#useless to justification
-    #     # message = st.write("Choose your answer from the following possibilities", "")
-    #     img = image_select("Label", current_row_images_possibilities)
-    #     if img == real_answer : 
-    #         st.write("gg")
-
-
-#         if img == "images/Question_6_Options/Put.JPG" : 
-#             st.write("gg")
-
     else : 
         #current answer
         answer = st.selectbox("Choose your answer :", current_split_row_possibilities)
