@@ -153,8 +153,6 @@ def treatment(p_dataframe):
     
     elif current_row_possibilities == "Image": #give the possibility to answer by writting
         current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
-        st.write(f"{current_row_images_possibilities}")
-        current_row_images_possibilities.tolist()
         st.write(f"{type(current_row_images_possibilities)}")
         test = ["images/Question_6_Options/CallOK.JPG", "images/Question_6_Options/Put.JPG"]
         st.write(f"{test}")
