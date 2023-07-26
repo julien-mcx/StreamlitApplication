@@ -167,21 +167,21 @@ def treatment(p_dataframe):
     #         st.write("gg")
     elif current_row_possibilities == "Image": #give the possibility to answer by selecting an image
         current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
-        st.write("Choose your answer from the following possibilities")
-        
+        st.markdown("### Choose your answer from the following possibilities")
+
         # Utiliser une liste avec une chaîne vide pour représenter l'option par défaut (non sélectionnée)
         image_options = [""]
         image_options.extend(current_row_images_possibilities)
-        
-        img = image_select("Label", image_options)
-        
+
+        img = image_select("Label", image_options, key="image_select")
+
         # Vérifier si l'utilisateur a choisi une option valide
         if img == "":  
             st.info("Please select an image.")
         elif img == real_answer:
-            st.success("Exactement ! Quelques compléments : \n " + real_justification)
+            st.success("✅ Exactement ! Quelques compléments : \n " + real_justification)
         else:
-            st.error("Faux ! puisque : " + real_justification)
+            st.error("❌ Faux ! puisque : " + real_justification)
 
 
 
