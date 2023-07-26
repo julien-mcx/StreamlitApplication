@@ -169,17 +169,20 @@ def treatment(p_dataframe):
         current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
         st.write("Choose your answer from the following possibilities")
         
-        # Utiliser une liste vide si aucune possibilité d'image n'est disponible
-        image_options = current_row_images_possibilities if any(current_row_images_possibilities) else []
+        # Utiliser une liste avec une chaîne vide pour représenter l'option par défaut (non sélectionnée)
+        image_options = [""]
+        image_options.extend(current_row_images_possibilities)
         
-        # Ajouter une option vide par défaut en utilisant le paramètre `index`
-        img = image_select("Label", image_options, index=None)
-        if not img:
+        img = image_select("Label", image_options)
+        
+        # Vérifier si l'utilisateur a choisi une option valide
+        if img == "":  
             st.info("Please select an image.")
         elif img == real_answer:
             st.success("Exactement ! Quelques compléments : \n " + real_justification)
         else:
             st.error("Faux ! puisque : " + real_justification)
+
 
 
 
