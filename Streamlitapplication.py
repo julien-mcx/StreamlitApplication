@@ -171,14 +171,16 @@ def treatment(p_dataframe):
         
         # Utiliser une liste vide si aucune possibilité d'image n'est disponible
         image_options = current_row_images_possibilities if any(current_row_images_possibilities) else []
-
-        img = image_select("Label", image_options)
+        
+        # Ajouter une option vide par défaut en utilisant le paramètre `index`
+        img = image_select("Label", image_options, index=None)
         if not img:
             st.info("Please select an image.")
         elif img == real_answer:
             st.success("Exactement ! Quelques compléments : \n " + real_justification)
         else:
             st.error("Faux ! puisque : " + real_justification)
+
 
 
     else : 
