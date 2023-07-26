@@ -168,13 +168,18 @@ def treatment(p_dataframe):
     elif current_row_possibilities == "Image": #give the possibility to answer by selecting an image
         current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
         st.write("Choose your answer from the following possibilities")
-        img = image_select("Label", [None] + current_row_images_possibilities)  # Ajouter None au début de la liste
-        if img is None:
+        
+        # Utiliser une liste vide si aucune possibilité d'image n'est disponible
+        image_options = current_row_images_possibilities if any(current_row_images_possibilities) else []
+
+        img = image_select("Label", image_options)
+        if not img:
             st.info("Please select an image.")
         elif img == real_answer:
             st.success("Exactement ! Quelques compléments : \n " + real_justification)
         else:
             st.error("Faux ! puisque : " + real_justification)
+
 
     else : 
         #current answer
