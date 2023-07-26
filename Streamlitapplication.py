@@ -165,27 +165,17 @@ def treatment(p_dataframe):
     #     img = image_select("Label", current_row_images_possibilities)
     #     if img == "images/Question_6_Options/CallOK.JPG" : 
     #         st.write("gg")
-    
     elif current_row_possibilities == "Image": #give the possibility to answer by selecting an image
         current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
-
-        # Vérifier si la liste contient uniquement des chaînes vides (images non disponibles)
-        images_available = any(img.strip() for img in current_row_images_possibilities)
-
-        if images_available:
-            st.write("Choose your answer from the following possibilities")
-            img = image_select("Label", current_row_images_possibilities)
-
-            if img == real_answer:
-                st.success("Exactement ! Quelques compléments : \n " + real_justification)
-            else:
-                st.error("Faux ! puisque : " + real_justification)
+        st.write("Choose your answer from the following possibilities")
+        img = image_select("Label", [None] + current_row_images_possibilities)  # Ajouter None au début de la liste
+        if img is None:
+            st.info("Please select an image.")
+        elif img == real_answer:
+            st.success("Exactement ! Quelques compléments : \n " + real_justification)
         else:
-            st.write("Images are not available for this question.")
+            st.error("Faux ! puisque : " + real_justification)
 
-
-
-    
     else : 
         #current answer
         answer = st.selectbox("Choose your answer :", current_split_row_possibilities)
