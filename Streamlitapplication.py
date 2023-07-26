@@ -166,14 +166,19 @@ def treatment(p_dataframe):
     #     if img == "images/Question_6_Options/CallOK.JPG" : 
     #         st.write("gg")
     
-    elif current_row_possibilities == "Image": #give the possibility to answer by writting
+    elif current_row_possibilities == "Image": #give the possibility to answer by selecting an image
         current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
+        current_row_images_possibilities.insert(0, "")  # Ajouter une option vide au début de la liste
         st.write("Choose your answer from the following possibilities")
         img = image_select("Label", current_row_images_possibilities)
-        if img == real_answer : 
+        if img == "":
+            # L'utilisateur n'a pas sélectionné d'image
+            st.info("Please select an image.")
+        elif img == real_answer:
             st.success("Exactement ! Quelques compléments : \n " + real_justification)
-        else : 
+        else:
             st.error("Faux ! puisque : " + real_justification)
+
     
     else : 
         #current answer
