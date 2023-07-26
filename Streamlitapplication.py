@@ -169,18 +169,20 @@ def treatment(p_dataframe):
     elif current_row_possibilities == "Image": #give the possibility to answer by selecting an image
         current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
 
-        # Ajouter une option vide à la liste (en utilisant un tuple)
-        current_row_images_possibilities_with_empty = ("",) + tuple(current_row_images_possibilities)
+        # Vérifier si la liste contient uniquement des chaînes vides (images non disponibles)
+        images_available = any(img.strip() for img in current_row_images_possibilities)
 
-        st.write("Choose your answer from the following possibilities")
-        img = image_select("Label", current_row_images_possibilities_with_empty)
+        if images_available:
+            st.write("Choose your answer from the following possibilities")
+            img = image_select("Label", current_row_images_possibilities)
 
-        if img == "":  # L'utilisateur n'a pas sélectionné d'image
-            st.info("Please select an image.")
-        elif img == real_answer:
-            st.success("Exactement ! Quelques compléments : \n " + real_justification)
+            if img == real_answer:
+                st.success("Exactement ! Quelques compléments : \n " + real_justification)
+            else:
+                st.error("Faux ! puisque : " + real_justification)
         else:
-            st.error("Faux ! puisque : " + real_justification)
+            st.write("Images are not available for this question.")
+
 
 
     
