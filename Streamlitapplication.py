@@ -78,19 +78,18 @@ import requests
 from streamlit_lottie import st_lottie
 import base64
 def sidebar_bg(side_bg):
+    side_bg_ext = 'png'
 
-   side_bg_ext = 'png'
-
-   st.markdown(
-      f"""
-      <style>
-      [data-testid="stSidebar"] > div:first-child {{
-          background: url(data:image/{side_bg_ext};base64,{base64.b64encode(open(side_bg, "rb").read()).decode()});
-      }}
-      </style>
-      """,
-      unsafe_allow_html=True,
-      )
+    st.markdown(
+        f"""
+        <style>
+        [data-testid="stSidebar"] > div:first-child {{
+            background: url(data:image/{side_bg_ext};base64,{base64.b64encode(open(side_bg, "rb").read()).decode()});
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
 p_filedirectory = 'QuestionsFinancedeMarche12.xlsx' #CHANGEMENT
 dataframe_all = pd.ExcelFile(p_filedirectory)
@@ -241,122 +240,123 @@ def primarychoice():
 
          # Vizualization styles
         page = """
-            <style>
-                /* Page Title */
-                h1 {
-                    font-size: 48px;
-                    color: #242424;
-                    font-family: Arial, sans-serif;
-                    background-color: #60b1f7;
-                    padding: 10px; /* Add some space around the title */
-                    border-radius: 5px; /* Add rounded corners to the title */
-                }
+        <style>
+            /* Page Title */
+            h1 {
+                font-size: 48px;
+                color: #002D68;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-weight: bold;
+                padding: 10px;
+                border-bottom: 2px solid #002D68;
+            }
 
-                /* Section Headings */
-                h2 {
-                    font-size: 36px;
-                    color: #333333;
-                    font-family: Arial, sans-serif;
-                    margin-bottom: 10px;
-                }
+            /* Section Headings */
+            h2 {
+                font-size: 36px;
+                color: #002D68;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
 
-                /* Subsection Headings */
-                h3 {
-                    font-size: 24px;
-                    color: #333333;
-                    font-family: Arial, sans-serif;
-                    margin-bottom: 10px;
-                }
+            /* Subsection Headings */
+            h3 {
+                font-size: 24px;
+                color: #002D68;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
 
-                /* Paragraphs */
-                p {
-                    font-size: 18px;
-                    color: #4A4A4A;
-                    font-family: Arial, sans-serif;
-                    line-height: 1.5;
-                    margin-bottom: 10px;
-                }
+            /* Paragraphs */
+            p {
+                font-size: 18px;
+                color: #4A4A4A;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                line-height: 1.5;
+                margin-bottom: 10px;
+            }
 
-                /* Buttons */
-                .stButton {
-                    background-color: #45A160;
-                    color: #FFFFFF;
-                    border-radius: 5px;
-                    border: none;
-                    font-size: 18px;
-                    padding: 10px 20px;
-                    margin-top: 20px;
-                    margin-bottom: 20px;
-                    font-family: Arial, sans-serif;
-                    cursor: pointer;
-                }
+            /* Buttons */
+            .stButton {
+                background-color: #002D68;
+                color: #FFFFFF;
+                border-radius: 5px;
+                border: none;
+                font-size: 18px;
+                padding: 10px 20px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                cursor: pointer;
+            }
 
-                .stButton:hover {
-                    background-color: #4EB36B;
-                }
+            .stButton:hover {
+                background-color: #0047A0;
+            }
 
-                /* Text Input Fields */
-                .stTextInput {
-                    border-radius: 5px;
-                    border: 1px solid #D2D2D2;
-                    font-size: 18px;
-                    padding: 10px;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                    font-family: Arial, sans-serif;
-                    color: #4A4A4A;
-                }
+            /* Text Input Fields */
+            .stTextInput {
+                border-radius: 5px;
+                border: 1px solid #D2D2D2;
+                font-size: 18px;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                color: #4A4A4A;
+            }
 
-                /* Checkbox Input Fields */
-                .stCheckbox {
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                }
+            /* Checkbox Input Fields */
+            .stCheckbox {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
 
-                /* Select Input Fields */
-                .stSelectbox {
-                    border-radius: 5px;
-                    border: 1px solid #D2D2D2;
-                    font-size: 18px;
-                    padding: 10px;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                    font-family: Arial, sans-serif;
-                    color: #4A4A4A;
-                    background-color: #FFFFFF;
-                }
+            /* Select Input Fields */
+            .stSelectbox {
+                border-radius: 5px;
+                border: 1px solid #D2D2D2;
+                font-size: 18px;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                color: #4A4A4A;
+                background-color: #FFFFFF;
+            }
 
-                /* Select Input Field Options */
-                .stSelectbox option {
-                    font-size: 18px;
-                    font-family: Arial, sans-serif;
-                    color: #4A4A4A;
-                }
+            /* Select Input Field Options */
+            .stSelectbox option {
+                font-size: 18px;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                color: #4A4A4A;
+            }
 
-                /* Custom Sidebar Background */
-                [data-testid="stSidebar"] {
-                    background-color: #e5e5f7;
-                    opacity: 0.9;
-                    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 20px),
-                                    repeating-linear-gradient(#5245f755, #5245f7);
-                }
+            /* Custom Sidebar Background */
+            [data-testid="stSidebar"] {
+                background-color: #F0F0F5;
+                opacity: 0.9;
+                background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #F0F0F5 20px),
+                                  repeating-linear-gradient(#6EB52F 55px, #6EB52F 56px, #FFFFFF 56px, #FFFFFF 58px);
+            }
 
-                /* Custom Main Content Area Background */
-                [data-testid="stAppMain"] {
-                    background-color: #e5e5f7;
-                    opacity: 0.9;
-                    background-image: radial-gradient(#f7a645 1px, transparent 1px),
-                                    radial-gradient(#f7a645 1px, #e5e5f7 1px);
-                    background-size: 40px 40px;
-                    background-position: 0 0, 20px 20px;
-                }
-            </style>
-        """
+            /* Custom Main Content Area Background */
+            [data-testid="stAppMain"] {
+                background-color: #F0F0F5;
+                opacity: 0.9;
+                background-image: radial-gradient(#F7A645 1px, transparent 1px),
+                                  radial-gradient(#F7A645 1px, #F0F0F5 1px);
+                background-size: 40px 40px;
+                background-position: 0 0, 20px 20px;
+            }
+        </style>
+    """
 
-        st.markdown(page, unsafe_allow_html=True)
+    st.markdown(page, unsafe_allow_html=True)
 
-        return df_current
+    return df_current
 
 if __name__ == '__main__':
     primarychoice()
-
