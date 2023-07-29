@@ -16,6 +16,8 @@ import plotly.express as px  # interactive charts
 from PIL import Image
 import json
 from streamlit_image_select import image_select
+import base64
+
 
 
 #for ML 
@@ -237,127 +239,124 @@ def primarychoice():
         st.title(l_assettypechoice)
         treatment(df_current)
 
-        #vizualization 
+         # Vizualization styles
         page = """
-        <style>
-            /* Sidebar */
-            [data-testid="stSidebar"]  {
-                background-color: #F9F9F9;
-                border-right: 1px solid #D2D2D2;
-            }
+            <style>
+                /* Page Title */
+                h1 {
+                    font-size: 48px;
+                    color: #242424;
+                    font-family: Arial, sans-serif;
+                    background-color: #60b1f7;
+                    padding: 10px; /* Add some space around the title */
+                    border-radius: 5px; /* Add rounded corners to the title */
+                }
 
-            /* Main Content Area */
-            [data-testid="stAppMain"] {
-                background-color: #FFFFFF;
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            }
+                /* Section Headings */
+                h2 {
+                    font-size: 36px;
+                    color: #333333;
+                    font-family: Arial, sans-serif;
+                    margin-bottom: 10px;
+                }
 
-            /* Page Title */
-            h1 {
-                font-size: 48px;
-                color: #242424;
-                font-family: Arial, sans-serif;
-                background-color: #60b1f7;
-                padding: 10px; /* Ajouter cette ligne pour donner de l'espace autour du titre */
-            }
+                /* Subsection Headings */
+                h3 {
+                    font-size: 24px;
+                    color: #333333;
+                    font-family: Arial, sans-serif;
+                    margin-bottom: 10px;
+                }
 
-            /* Section Headings */
-            h2 {
-                font-size: 36px;
-                color: #333333;
-                font-family: Arial, sans-serif;
-                margin-bottom: 10px;
-            }
+                /* Paragraphs */
+                p {
+                    font-size: 18px;
+                    color: #4A4A4A;
+                    font-family: Arial, sans-serif;
+                    line-height: 1.5;
+                    margin-bottom: 10px;
+                }
 
-            /* Subsection Headings */
-            h3 {
-                font-size: 24px;
-                color: #333333;
-                font-family: Arial, sans-serif;
-                margin-bottom: 10px;
-            }
+                /* Buttons */
+                .stButton {
+                    background-color: #45A160;
+                    color: #FFFFFF;
+                    border-radius: 5px;
+                    border: none;
+                    font-size: 18px;
+                    padding: 10px 20px;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    font-family: Arial, sans-serif;
+                    cursor: pointer;
+                }
 
-            /* Paragraphs */
-            p {
-                font-size: 18px;
-                color: #4A4A4A;
-                font-family: Arial, sans-serif;
-                line-height: 1.5;
-                margin-bottom: 10px;
-            }
+                .stButton:hover {
+                    background-color: #4EB36B;
+                }
 
-            /* Buttons */
-            .stButton {
-                background-color: #45A160;
-                color: #FFFFFF;
-                border-radius: 5px;
-                border: none;
-                font-size: 18px;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-bottom: 20px;
-                font-family: Arial, sans-serif;
-                cursor: pointer;
-            }
+                /* Text Input Fields */
+                .stTextInput {
+                    border-radius: 5px;
+                    border: 1px solid #D2D2D2;
+                    font-size: 18px;
+                    padding: 10px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    font-family: Arial, sans-serif;
+                    color: #4A4A4A;
+                }
 
-            .stButton:hover {
-                background-color: #4EB36B;
-            }
+                /* Checkbox Input Fields */
+                .stCheckbox {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
 
-            /* Text Input Fields */
-            .stTextInput {
-                border-radius: 5px;
-                border: 1px solid #D2D2D2;
-                font-size: 18px;
-                padding: 10px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                font-family: Arial, sans-serif;
-                color: #4A4A4A;
-            }
+                /* Select Input Fields */
+                .stSelectbox {
+                    border-radius: 5px;
+                    border: 1px solid #D2D2D2;
+                    font-size: 18px;
+                    padding: 10px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    font-family: Arial, sans-serif;
+                    color: #4A4A4A;
+                    background-color: #FFFFFF;
+                }
 
-            /* Checkbox Input Fields */
-            .stCheckbox {
-                margin-top: 10px;
-                margin-bottom: 10px;
-            }
+                /* Select Input Field Options */
+                .stSelectbox option {
+                    font-size: 18px;
+                    font-family: Arial, sans-serif;
+                    color: #4A4A4A;
+                }
 
-            /* Select Input Fields */
-            .stSelectbox {
-                border-radius: 5px;
-                border: 1px solid #D2D2D2;
-                font-size: 18px;
-                padding: 10px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                font-family: Arial, sans-serif;
-                color: #4A4A4A;
-                background-color: #FFFFFF;
-            }
+                /* Custom Sidebar Background */
+                [data-testid="stSidebar"] {
+                    background-color: #e5e5f7;
+                    opacity: 0.9;
+                    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 20px),
+                                    repeating-linear-gradient(#5245f755, #5245f7);
+                }
 
-            /* Select Input Field Options */
-            .stSelectbox option {
-                font-size: 18px;
-                font-family: Arial, sans-serif;
-                color: #4A4A4A;
-            }
-            [data-testid="stSidebar"]  {background-color: #e5e5f7;
-            opacity: 0.9;
-            background-image:primaryColor="#6eb52f",backgroundColor="#f0f0f5",secondaryBackgroundColor="#e0e0ef",textColor="#262730",font="sans serif";)
-            #background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 20px ), repeating-linear-gradient( #5245f755, #5245f7 );}
-
-            [data-testid="stAppViewContainer"]  {background-color: #e5e5f7;
-            opacity: 0.9;
-            background-image:  radial-gradient(#f7a645 1px, transparent 1px), radial-gradient(#f7a645 1px, #e5e5f7 1px);
-            background-size: 40px 40px;
-            background-position: 0 0,20px 20px;
-            }
-        </style>
-        
+                /* Custom Main Content Area Background */
+                [data-testid="stAppMain"] {
+                    background-color: #e5e5f7;
+                    opacity: 0.9;
+                    background-image: radial-gradient(#f7a645 1px, transparent 1px),
+                                    radial-gradient(#f7a645 1px, #e5e5f7 1px);
+                    background-size: 40px 40px;
+                    background-position: 0 0, 20px 20px;
+                }
+            </style>
         """
+
         st.markdown(page, unsafe_allow_html=True)
 
-        return(df_current)
+        return df_current
 
 if __name__ == '__main__':
     primarychoice()
+
