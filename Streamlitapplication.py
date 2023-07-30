@@ -208,7 +208,7 @@ def treatment(p_dataframe):
         #calcul 
         current_result_from_my_calcul = delta("call", float(current_row_parameters_splitted[0]),float(current_row_parameters_splitted[1]), float(current_row_parameters_splitted[2]), float(current_row_parameters_splitted[3]), float(current_row_parameters_splitted[4]))
 
-        message = st.number_input("Enter your answer : ")
+        message = st.number_input("Enter your answer : ",label_visibility="hidden" ) 
         real_answer = current_row['Answer'].iloc[0]#useless to check 
         real_justification = current_row['Justification'].iloc[0]#useless to justification   
         st.write(real_answer-float(current_row_parameters_splitted[5]))     
