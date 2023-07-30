@@ -212,15 +212,11 @@ def treatment(p_dataframe):
         real_answer = current_row['Answer'].iloc[0]#useless to check 
         real_justification = current_row['Justification'].iloc[0]#useless to justification        
         
-        if real_answer-current_row_parameters_splitted[6] <= answer <= real_answer+current_row_parameters_splitted[6] :
-            st.success("Exactement ! Quelques compléments : \n " + real_justification + current_result_from_my_calcul)
+        if real_answer-current_row_parameters_splitted[5] <= answer <= real_answer+current_row_parameters_splitted[5] :
+            st.success("✅ Exactement ! Quelques compléments : \n "  + real_justification + current_result_from_my_calcul)
 
         else : 
-            st.error("Faux ! puisque : " + real_justification)
-
-
-
-
+            st.error("❌ Faux ! puisque : " + real_justification)
 
 
     else : 
@@ -232,10 +228,10 @@ def treatment(p_dataframe):
             real_justification = current_row['Justification'].iloc[0]#useless to justification        
             
             if answer == real_answer :
-                st.success("Exactement ! Quelques compléments : \n " + real_justification)
+                st.success("✅ Exactement ! Quelques compléments : \n " + real_justification)
 
             else : 
-                st.error("Faux ! puisque : " + real_justification)
+                st.error("❌ Faux ! puisque : " + real_justification)
 
 
 def primarychoice():
