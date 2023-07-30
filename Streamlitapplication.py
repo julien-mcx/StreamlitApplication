@@ -206,7 +206,7 @@ def treatment(p_dataframe):
         current_row_parameters_splitted = current_row_parameters.split(",")
 
         #calcul 
-        current_result_from_my_calcul = delta("call", int(current_row_parameters_splitted[0]),int(current_row_parameters_splitted[1]), int(current_row_parameters_splitted[2]), int(current_row_parameters_splitted[3]), int(current_row_parameters_splitted[4]))
+        current_result_from_my_calcul = delta("call", int(float(current_row_parameters_splitted[0])),int(float(current_row_parameters_splitted[1])), int(float(current_row_parameters_splitted[2])), int(float(current_row_parameters_splitted[3])), int(float(current_row_parameters_splitted[4])))
 
         message = st.text_area("Enter your answer : ", "")
         real_answer = current_row['Answer'].iloc[0]#useless to check 
