@@ -184,9 +184,17 @@ def treatment(p_dataframe):
         else:
             st.error("❌ Faux ! puisque : " + real_justification)
 
-    elif current_row_possibilities == "ImageinQuestion": #give the possibility to answer by selecting an image
+    elif current_row_possibilities == "ImageinQuestion_pricing": #give the possibility to answer by selecting an image
         current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
         st.image(current_row_images_possibilities)
+        current_row_parameters = current_row['Parameters'].iloc[0]
+        current_row_parameters_splitted = current_row_parameters.split(",")
+        st.write(current_row_parameters_splitted)
+
+
+
+        message = st.text_area("Enter your text : ", "")
+
 
         st.write("gg")
 
