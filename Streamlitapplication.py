@@ -8,6 +8,7 @@ import io
 import glob
 import pickle
 import numpy as np
+from scipy.stats import norm
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
@@ -73,6 +74,21 @@ def send_email(to_email, subject, body):
 # from textblob import textBlob
 # from gensim.summarization import summarize
 
+#calcul part 
+
+def distribution_fonction(x:float, mu:int =0, sigma:int =1):
+    return(norm.cdf(x, mu,sigma))
+
+def d_1(S:float, K:float, time : float, vol : float, r : float ):
+    return(np.log(S/K) + (r + vol**2/2)*time)/(vol*np.sqrt(time))
+
+def delta(product : str, S:float, K:float, time : float, vol : float, r : float  ):
+    if product == "call":
+        return(distribution_fonction(d_1(S,time,K,vol,r)))
+    if product == "put":
+        return(distribution_fonction(d_1(S,time,K,vol,r))-1)
+    
+
 #for vizualisation
 import requests
 from streamlit_lottie import st_lottie
@@ -95,7 +111,6 @@ p_filedirectory = 'QuestionsFinancedeMarche12.xlsx' #CHANGEMENT
 dataframe_all = pd.ExcelFile(p_filedirectory)
 dataframe_allsheets = dataframe_all.sheet_names
 dataframe_allsheets.remove('Commentaires  ') #delete sheet Commentaires
-
 
 def load_lottiefile(filepath :str):
     with open(filepath, "r") as f : 
@@ -189,14 +204,22 @@ def treatment(p_dataframe):
         st.image(current_row_images_possibilities)
         current_row_parameters = current_row['Parameters'].iloc[0]
         current_row_parameters_splitted = current_row_parameters.split(",")
-        st.write(current_row_parameters_splitted[0])
+
+        #calcul 
+        current_result_from_my_calcul = delta("call", current_row_parameters_splitted[0],current_row_parameters_splitted[1], current_row_parameters_splitted[2], current_row_parameters_splitted[3], current_row_parameters_splitted[4])
+
+        message = st.text_area("Enter your answer : ", "")
+        real_answer = current_row['Answer'].iloc[0]#useless to check 
+        real_justification = current_row['Justification'].iloc[0]#useless to justification        
+        
+        if real_answer-current_row_parameters_splitted[6] <= answer <= real_answer+current_row_parameters_splitted[6] :
+            st.success("Exactement ! Quelques compléments : \n " + real_justification + current_result_from_my_calcul)
+
+        else : 
+            st.error("Faux ! puisque : " + real_justification)
 
 
 
-        message = st.text_area("Enter your text : ", "")
-
-
-        st.write("gg")
 
 
 
