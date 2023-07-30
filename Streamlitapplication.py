@@ -189,7 +189,7 @@ def treatment(p_dataframe):
         st.image(current_row_images_possibilities)
         current_row_parameters = current_row['Parameters'].iloc[0]
         current_row_parameters_splitted = current_row_parameters.split(",")
-        st.write(current_row_parameters_splitted)
+        st.write(current_row_parameters_splitted[0])
 
 
 
