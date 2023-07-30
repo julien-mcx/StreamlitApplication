@@ -210,7 +210,8 @@ def treatment(p_dataframe):
 
         message = st.text_area("Enter your answer : ", "")
         real_answer = current_row['Answer'].iloc[0]#useless to check 
-        real_justification = current_row['Justification'].iloc[0]#useless to justification        
+        real_justification = current_row['Justification'].iloc[0]#useless to justification   
+        st.write(real_answer-float(current_row_parameters_splitted[5]))     
         
         if real_answer-float(current_row_parameters_splitted[5]) <= answer <= float(real_answer+current_row_parameters_splitted[5]) :
             st.success("✅ Exactement ! Quelques compléments : \n "  + real_justification + current_result_from_my_calcul)
