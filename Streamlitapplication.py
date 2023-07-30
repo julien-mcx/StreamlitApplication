@@ -184,6 +184,11 @@ def treatment(p_dataframe):
         else:
             st.error("❌ Faux ! puisque : " + real_justification)
 
+    elif current_row_possibilities == "ImageinQuestion": #give the possibility to answer by selecting an image
+        current_row_images_possibilities = current_row_images_possibilities.split(", ") #attention à l'espace
+        st.image(current_row_images_possibilities)
+
+        st.write("gg")
 
 
 
